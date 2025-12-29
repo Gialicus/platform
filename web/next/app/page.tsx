@@ -1,3 +1,4 @@
+import { GetAgentsConfigsResponseOK } from "@/client/api-types";
 import { getAgentsConfigs } from "../client/api.mjs";
 
 
@@ -9,10 +10,10 @@ export default async function Home() {
   );
 }
 
-function AgentConfigList({ data }: { data: any[] }) {
+function AgentConfigList({ data }: { data: GetAgentsConfigsResponseOK }) {
   return (
     <div className="flex flex-col gap-4">
-      {data.map((item: any) => (
+      {data.map((item: GetAgentsConfigsResponseOK[number]) => (
         <div key={item.id} className="border border-gray-300 rounded-md p-4">
           <h3 className="text-lg font-bold">{item.name}</h3>
           <p className="text-sm text-gray-500">{item.instructions}</p>

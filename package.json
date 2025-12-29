@@ -1,0 +1,19 @@
+{
+  "name": "platform",
+  "scripts": {
+    "dev": "wattpm dev",
+    "build": "wattpm build",
+    "start": "wattpm start"
+  },
+  "dependencies": {
+    "@platformatic/gateway": "^3.29.1",
+    "massimo": "^1.2.0",
+    "wattpm": "^3.29.1"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "workspaces": [
+    "web/*"
+  ]
+}

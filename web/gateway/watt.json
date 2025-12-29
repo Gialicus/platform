@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/gateway/3.29.1.json",
+  "watch": true,
+  "gateway": {
+    "applications": [
+      {
+        "id": "agents_configs"
+      },
+      {
+        "id": "next"
+      }
+    ],
+    "refreshTimeout": 1000
+  }
+}

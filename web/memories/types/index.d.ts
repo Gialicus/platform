@@ -2,29 +2,43 @@ import { Entity, EntityHooks, Entities as DatabaseEntities, PlatformaticDatabase
 import { PlatformaticApplication, PlatformaticServiceConfig } from '@platformatic/service'
 import { type FastifyInstance } from 'fastify'
 
-import { type Memory } from './memory.ts'
+import { type Chat } from './chat.ts'
+import { type Message } from './message.ts'
 
-export { type Memory } from './memory.ts'
+export { type Chat } from './chat.ts'
+export { type Message } from './message.ts'
 
 export interface Entities extends DatabaseEntities {
-  memory: Entity<Memory>
+  chat: Entity<Chat>
+  message: Entity<Message>
 }
 
 export interface EntityTypes {
-  memory: Memory
+  chat: Chat
+  message: Message
 }
 
 export interface EntitiesHooks {
-  addEntityHooks(entityName: 'memory', hooks: EntityHooks<Memory>): any
+  addEntityHooks(entityName: 'chat', hooks: EntityHooks<Chat>): any
+  addEntityHooks(entityName: 'message', hooks: EntityHooks<Message>): any
 }
 
 export interface SchemaGetters {
-  getSchema(schemaId: 'memory'): {
+  getSchema(schemaId: 'chat'): {
     '$id': string,
     title: string,
     description: string,
     type: string,
-    properties: { [x in keyof Memory]: { type: string, nullable?: boolean } },
+    properties: { [x in keyof Chat]: { type: string, nullable?: boolean } },
+    required: string[]
+  }
+
+getSchema(schemaId: 'message'): {
+    '$id': string,
+    title: string,
+    description: string,
+    type: string,
+    properties: { [x in keyof Message]: { type: string, nullable?: boolean } },
     required: string[]
   }
 }

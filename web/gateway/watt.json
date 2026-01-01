@@ -4,13 +4,22 @@
   "gateway": {
     "applications": [
       {
-        "id": "agents_configs"
+        "id": "agents_configs",
+        "openapi": {
+          "url": "/documentation/json"
+        }
       },
       {
-        "id": "agents"
+        "id": "agents",
+        "openapi": {
+          "url": "/documentation/json"
+        }
       },
       {
-        "id": "memories"
+        "id": "memories",
+        "openapi": {
+          "url": "/documentation/json"
+        }
       },
       {
         "id": "next"

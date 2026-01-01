@@ -7,6 +7,9 @@
         "id": "agents_configs"
       },
       {
+        "id": "agents"
+      },
+      {
         "id": "next"
       }
     ],

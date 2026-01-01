@@ -1,0 +1,21 @@
+{
+  "name": "agents",
+  "scripts": {
+    "dev": "wattpm dev",
+    "start": "wattpm start",
+    "build": "wattpm build",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "fastify": "^5.0.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.2",
+    "@platformatic/service": "^3.29.1",
+    "ai": "^6.0.5"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}

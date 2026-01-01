@@ -5,7 +5,7 @@ import z from "zod";
 
 export default async function (fastify: FastifyInstance, opts: FastifyPluginOptions) {
   const agent =  new ToolLoopAgent({
-    model: google("gemini-3-flash-preview"),
+    model: google("gemini-2.5-flash-lite"),
     instructions: "You are a helpful assistant that can answer questions and help with tasks.",
     tools: {
         get_weather: tool({

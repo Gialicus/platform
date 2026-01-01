@@ -11,7 +11,7 @@ declare module 'fastify' {
 export default async function (fastify: FastifyInstance, opts: FastifyPluginOptions) {
   fastify.get('/example', async (request, reply) => {
     const { text } = await generateText({
-      model: google("gemini-3-flash-preview"),
+      model: google("gemini-2.5-flash-lite"),
       prompt: "What is love?",
     });
     return { hello: text }

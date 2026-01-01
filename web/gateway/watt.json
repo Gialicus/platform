@@ -10,6 +10,9 @@
         "id": "agents"
       },
       {
+        "id": "memories"
+      },
+      {
         "id": "next"
       }
     ],

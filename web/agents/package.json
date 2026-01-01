@@ -13,7 +13,8 @@
   "dependencies": {
     "@ai-sdk/google": "^3.0.2",
     "@platformatic/service": "^3.29.1",
-    "ai": "^6.0.5"
+    "ai": "^6.0.5",
+    "zod": "^4.3.4"
   },
   "engines": {
     "node": ">=22.19.0"

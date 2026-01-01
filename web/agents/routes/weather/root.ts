@@ -19,14 +19,9 @@ export default async function (fastify: FastifyInstance, opts: FastifyPluginOpti
   });
 
   fastify.get('/', async (request, reply) => {
-    const { textStream } = await agent.stream({
+    const response = await agent.stream({
         prompt: 'What is the weather in Rome?',
-    });
-    let text = '';
-    for await (const chunk of textStream) {
-        fastify.log.info(chunk);
-        text += chunk;
-    }
-    return { text }
+    });    
+    return response.toUIMessageStreamResponse() 
   })
 }

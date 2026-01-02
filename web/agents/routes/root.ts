@@ -1,19 +1,27 @@
-import { google } from '@ai-sdk/google';
-import { generateText } from 'ai';
 import { type FastifyInstance, type FastifyPluginOptions } from 'fastify'
-
-declare module 'fastify' {
-  interface FastifyInstance {
-    example: string
-  }
-}
+import z from 'zod';
 
 export default async function (fastify: FastifyInstance, opts: FastifyPluginOptions) {
-  fastify.get('/example', async (request, reply) => {
-    const { text } = await generateText({
-      model: google("gemini-2.5-flash-lite"),
-      prompt: "What is love?",
-    });
-    return { hello: text }
-  })
+
+  const agentIdSchema = z.object({
+    agentId: z.string(),
+  });
+
+  fastify.get('/:agentId', async (request, _reply) => {
+    const { agentId } = agentIdSchema.parse(request.params);
+    const agent = await fastify.agentLoader.getAgentById(agentId);
+    const { response } = await agent.generate({
+      prompt: 'What is the recipe for a pizza margherita?',
+    })
+    return response
+  });
+
+  fastify.get('/:agentId/stream', async (request, _reply) => {
+    const { agentId } = agentIdSchema.parse(request.params);
+    const agent = await fastify.agentLoader.getAgentById(agentId);
+    const response = await agent.stream({
+      prompt: 'What is the recipe for a pizza margherita?',
+    })
+    return response.toUIMessageStreamResponse()
+  });
 }

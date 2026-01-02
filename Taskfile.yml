@@ -16,3 +16,13 @@ tasks:
       - mkdir -p clients/agents_configs 
       - npx wattpm agents_configs:schema openapi > clients/agents_configs/agents_configs.openapi.json
       - npx massimo-cli --name agents_configs --folder clients/agents_configs clients/agents_configs/agents_configs.openapi.json
+
+  migrate:memories:
+    desc: Migrate the memories database
+    cmds:
+      - npx wattpm memories:migrations:apply
+
+  migrate:agents_configs:
+    desc: Migrate the agents configs database
+    cmds:
+      - npx wattpm agents_configs:migrations:apply

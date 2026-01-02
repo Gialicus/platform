@@ -1,0 +1,6 @@
+{
+  "name": "memories",
+  "types": "./memories.d.ts",
+  "type": "module",
+  "main": "./memories.mjs"
+}

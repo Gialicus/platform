@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  gen:clients:memories:
+    desc: Generate the memories client
+    cmds:
+      - mkdir -p clients/memories
+      - npx wattpm memories:schema openapi > clients/memories/memories.openapi.json
+      - npx massimo-cli --name memories --folder clients/memories clients/memories/memories.openapi.json
+
+  gen:clients:agents_configs:
+    desc: Generate the agents configs client
+    cmds:
+      - mkdir -p clients/agents_configs 
+      - npx wattpm agents_configs:schema openapi > clients/agents_configs/agents_configs.openapi.json
+      - npx massimo-cli --name agents_configs --folder clients/agents_configs clients/agents_configs/agents_configs.openapi.json

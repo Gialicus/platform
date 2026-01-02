@@ -1,0 +1,6 @@
+{
+  "name": "agents_configs",
+  "types": "./agents_configs.d.ts",
+  "type": "module",
+  "main": "./agents_configs.mjs"
+}
